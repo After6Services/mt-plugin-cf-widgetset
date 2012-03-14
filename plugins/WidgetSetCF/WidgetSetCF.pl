@@ -2,7 +2,7 @@ package MT::Plugin::WidgetSetCF;
 
 use strict;
 use base qw( MT::Plugin );
-our $VERSION = '1.1.1'; 
+our $VERSION = '1.1.2'; 
 my $plugin = MT::Plugin::WidgetSetCF->new({
    id          => 'WidgetSetCF',
    key         => 'widget-set-cf',
@@ -90,7 +90,7 @@ sub _hdlr_WidgetSetExists {
                                               type    => 'widgetset',
                                               name    => $set,});
         }
-        if ($widgetset->name eq $set) {
+        if ($widgetset && $widgetset->name eq $set) {
             return 1;
         }
         else {
