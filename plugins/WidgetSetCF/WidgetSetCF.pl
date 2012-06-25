@@ -2,7 +2,7 @@ package MT::Plugin::WidgetSetCF;
 
 use strict;
 use base qw( MT::Plugin );
-our $VERSION = '1.1.2'; 
+our $VERSION = '1.1.3'; 
 my $plugin = MT::Plugin::WidgetSetCF->new({
    id          => 'WidgetSetCF',
    key         => 'widget-set-cf',
@@ -31,7 +31,6 @@ sub init_registry {
 
                 my $html = '<select name="<mt:var name="field_name">" id="<mt:var name="field_id">">';
                 $html .= '<option value="" <mt:if name="field_value" eq=""> selected="selected"</mt:if>>None Selected</option>';
-                MT::log("Version number: ".MT->version_number);
                 if (MT->version_number < 4.2) { # For MT, pre-4.2, when the Widget Manager functionality was made core.
                     my $modulesets = MT::Plugin::WidgetManager::instance()->load_selected_modules($app->blog->id) || {};
                     my @names = sort keys %$modulesets;
